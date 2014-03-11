@@ -1,0 +1,57 @@
+{% extends "template_1.html" %}
+{% load cms_tags %}
+{% load i18n %}
+
+{% block food %}
+
+{% get_language_info for LANGUAGE_CODE as lang %}
+
+{% if lang.code == "en" %}
+
+{% placeholder template_1_drink %}
+<div class="drinkscontent">
+<div class="menuselection"><h1>DRINKS TEST</h1></div>
+
+
+<!-- For drinks object passed from the database, take each drink, output the name, description and price of the drink -->
+{% for drink in drinks %}
+<span class="side">{{ drink.name }}</span> - <span class="price">{{ drink.price }}
+{% if drink.second_price %}
+/ {{ drink.second_price }}
+{% endif %}
+</span>
+<p class="description">{{ drink.description }}</p>
+
+{% endfor %}
+</div>
+
+{% elif lang.code == "fr" %}
+
+
+<div class="drinkscontent">
+<div class="menuselection"><h1>BOISSONS</h1></div>
+
+
+<!-- For drinks object passed from the database, take each drink, output the name, description and price of the drink -->
+{% for drink in drinks %}
+<span class="side">{{ drink.french_name }}</span> - <span class="price">{{ drink.price }}
+{% if drink.second_price %}
+/ {{ drink.second_price }}
+{% endif %}
+</span>
+<p class="description">{{ drink.french_description }}</p>
+
+{% endfor %}
+</div>
+
+
+
+
+
+
+
+{% endif %}
+
+
+{% endblock %}
+

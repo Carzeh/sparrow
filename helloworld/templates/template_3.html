@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% load i18n %}
+{% block base_content %}
+
+<!-- THIS IS THE CONTACT PAGE TEMPLATE -->
+
+<div class="main">
+<div class="header">
+<div class="socialmedia">
+{% load menu_tags %}
+{% language_chooser "language_chooser.html" %}	
+<a href="https://www.twitter.com/TheSparrowBar"><img src="/static/Twitter2.png" /></a>
+<a href="https://www.facebook.com/TheSparrowBar"><img src="/static/fb.png" /></a>	
+</div>
+<img src="/static/logo.jpg" class="logo" />
+
+<div class="headerlinks">
+
+{% get_language_info for LANGUAGE_CODE as lang %}
+{% if lang.code == "en" %}
+<li><a href="/food" id="food"><span>Food</span><img src="/static/food.jpg" /></a></li>
+<li><a href="/drinks" id="drinks"><span>Drinks</span><img src="/static/drinks.jpg" /></a></li>
+<li><a href="/contact" id="contact"><span>Contact</span><img src="/static/contact.png" /></a></li> 
+{% elif lang.code == "fr" %}
+<li><a href="/manger" id="food"><span>Manger</span><img src="/static/manger.jpg" /></a></li>
+<li><a href="/boire" id="drinks"><span>Boire</span><img src="/static/boire.jpg" /></a></li>
+<li><a href="/contact" id="contact"><span>Contact</span><img src="/static/contact.png" /></a></li>
+{% endif %}
+
+</div>
+</div> 
+<div class="contentcontainer">
+	
+<div class="content">
+{% placeholder template_1_content %}
+
+</div>
+</div>
+
+
+
+<div class="footer">
+</div>	
+</div>
+
+
+{% endblock %}

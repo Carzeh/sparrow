@@ -1,0 +1,105 @@
+{% extends "template_1.html" %}
+{% load cms_tags %}
+{% load i18n %}
+{% block food %}
+
+{% placeholder template_1_food %}
+
+{% get_language_info for LANGUAGE_CODE as lang %}
+
+{% if lang.code == "en" %}
+
+<div class="menuselection"><a><h1 id="brunch">BRUNCH </h1></a><h1>/</h1><a><h1 id="dinner"> DINNER</h1></a></div>
+
+
+
+<div class="brunchmenu">
+<div class="mealtime">Friday - Sunday from 10.00am - 3.00pm</div>
+
+<!-- For each food in foods database object, if it is a brunch item and not a side then display its name, description and price -->
+{% for food in foods %}
+{% if food.is_brunch == True and food.is_side == False %}
+<h2>{{ food.name }}</h2>
+<p class="description">{{ food.description }}</p>
+<p class="price">{{ food.price }}</p>
+{% endif %}
+{% endfor %}
+
+<h1>SIDES</h1>
+<!-- For each food in foods database object, if it is a brunch item and a side then display its name, description and price -->
+{% for food in foods %}
+{% if food.is_brunch == True and food.is_side == True %}
+<p><span class="side">{{ food.name }}</span> | <span class="sideprice">{{ food.price }}</span></p>
+{% endif %}
+{% endfor %}
+</div>
+
+
+<div class="dinnermenu">
+<div class="mealtime">Monday - Sunday from 5pm - Midnight</div>
+<!-- For each food in foods database object, if it is a dinner item and not a side then display its name description and price -->
+{% for food in foods %}
+{% if food.is_dinner == True and food.is_side == False %}
+<h2>{{ food.name }}</h2>
+<p class="description">{{ food.description }}</p>
+<p class="price">{{ food.price }}</p>
+{% endif %}
+{% endfor %}
+
+<h1>SIDES</h1>
+<!-- For each food in foods database object, if it is a dinner item and a side then display its name description and price -->
+{% for food in foods %}
+{% if food.is_dinner == True and food.is_side == True %}
+<p><span class="side">{{ food.name }}</span> | <span class="sideprice">{{ food.price }}</span></p>
+{% endif %}
+{% endfor %}
+</div>
+
+{% elif lang.code == "fr" %}
+
+<div class="menuselection"><a><h1 id="brunch">BRUNCH </h1></a><h1>/</h1><a><h1 id="dinner"> SOUPER</h1></a></div>
+<div class="brunchmenu">
+<div class="mealtime">Vendredi - Dimanche de 10.00 - 3.00</div>
+
+<!-- For each food in foods database object, if it is a brunch item and not a side then display its name, description and price -->
+{% for food in foods %}
+{% if food.is_brunch == True and food.is_side == False %}
+<h2>{{ food.french_name }}</h2>
+<p class="description">{{ food.french_description }}</p>
+<p class="price">{{ food.price }}</p>
+{% endif %}
+{% endfor %}
+
+<h1>A COTE</h1>
+<!-- For each food in foods database object, if it is a brunch item and a side then display its name, description and price -->
+{% for food in foods %}
+{% if food.is_brunch == True and food.is_side == True %}
+<p><span class="side">{{ food.french_name }}</span> | <span class="sideprice">{{ food.price }}</span></p>
+{% endif %}
+{% endfor %}
+</div>
+
+
+<div class="dinnermenu">
+<div class="mealtime">Lundi - Dimanche de 5.00 - Minuit</div>
+<!-- For each food in foods database object, if it is a dinner item and not a side then display its name description and price -->
+{% for food in foods %}
+{% if food.is_dinner == True and food.is_side == False %}
+<h2>{{ food.french_name }}</h2>
+<p class="description">{{ food.french_description }}</p>
+<p class="price">{{ food.price }}</p>
+{% endif %}
+{% endfor %}
+
+<h1>A COTE</h1>
+<!-- For each food in foods database object, if it is a dinner item and a side then display its name description and price -->
+{% for food in foods %}
+{% if food.is_dinner == True and food.is_side == True %}
+<p><span class="side">{{ food.french_name }}</span> | <span class="sideprice">{{ food.price }}</span></p>
+{% endif %}
+{% endfor %}
+</div>
+
+{% endif %}
+
+{% endblock %}

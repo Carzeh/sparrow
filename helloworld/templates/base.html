@@ -1,0 +1,82 @@
+{% load cms_tags sekizai_tags %}
+
+{% addtoblock "css" %}
+    <link href="/static/css/stylesheet.css" rel="stylesheet" media="screen" type="text/css">
+{% endaddtoblock %}
+
+{% addtoblock "js" %}<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}<script type="text/javascript" src="/static/js/jquery.backstretch.min.js"></script>{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+
+// This code chooses between two images to be loaded when a page of the site is loaded (for variety) and then cycles through that image and a selection of other images whilst the page is viewed.  Backstretch automatically resizes the image as the web browser is resized.
+
+    // Create an array of images that you'd like to use
+    var images = [
+        '/static/duck.jpg'
+      , '/static/salad.jpg'
+      
+    ];
+    
+    // Get a random number between 0 and the number of images
+    var randomNumber = Math.floor( Math.random() * images.length );
+ 
+    // Use the random number to load a random image
+    $('.main').backstretch([images[randomNumber],'/static/poulet.jpg','/static/outside.jpg','/static/huevos.jpg'],{fade:2500,duration:6000});
+
+</script>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+
+// This script slides in the main content div from the left of the page when the page is loaded to make the page seem a bit more 'alive'
+$(document).ready(function() {
+  $(".content").animate({left: '0px'}, 1200);
+});
+</script>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+
+// This script waits until user clicks either the brunch or dinner menu anchor on the Food page and then either shows the brunch menu or the dinner menu to the user by changing the visibility of the div (both divs are hidden on page load) - Also changes colour of either brunch or dinner to 'highlight' it on the page
+$(document).ready(function() {
+  $('h1#brunch').click(function() {
+    $('.dinnermenu').css("display","none")
+    $('h1#brunch').css("color","#e39542")
+    $('h1#dinner').css("color","#BABABA")
+    $('.brunchmenu').css("display","inline")
+    
+  })
+    $('h1#dinner').click(function() {
+    $('.brunchmenu').css("display","none")
+    $('h1#dinner').css("color","#e39542")
+    $('h1#brunch').css("color","#BABABA")
+    $('.dinnermenu').css("display","inline")
+
+  })
+})
+</script>
+{% endaddtoblock %}
+
+<html>
+  <head>
+  {% render_block "css" %}
+
+  </head>
+  <body>
+  		
+      {% cms_toolbar %} 
+       
+      {% placeholder base_content %}
+      {% block base_content %}{% endblock %}
+  		
+
+      {% render_block "js" %}
+
+  </body>
+</html>

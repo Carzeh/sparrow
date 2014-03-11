@@ -1,0 +1,181 @@
+html,body {
+	overflow-x:hidden;
+	height:100%;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	font-family:"Palatino Linotype";
+}
+
+div {
+	margin:0px;
+	padding:0px;
+	max-width:100%;
+}
+
+img {
+	max-width:100%;
+}
+h2 {
+	font-size:120%;
+	padding:0;
+	margin:0;
+	color:#e39542;
+	font-weight:bold;
+}
+p.description {
+	font-style:italic;
+	font-size:95%;
+}
+p.price {
+	color:#7D6943;
+	font-size:90%;
+}
+h1 {
+	font-size: 180%;
+	color: #e39542;
+	font-weight:bold;	
+	display:inline;
+}
+a {
+	color: #e39542;
+}
+a:visited {
+	color:#BABABA;
+}
+#brunch {
+	color: #BABABA;
+}
+#dinner {
+	color: #BABABA;
+}
+.menuselection {
+	text-align:center;
+	cursor: pointer;
+}
+.main {
+	
+	background-size:100% 100%;	
+	margin:0px;
+	padding:0px;
+	min-width: 100%;
+	min-height:100%;
+	position:absolute;	
+}
+.header { 
+	
+	height: 100px;
+	padding-top: 10px; 
+	padding-bottom:10px;
+	background: white; 
+	position: relative;	
+	border-bottom:1px solid #ccc;
+	
+}
+.logo  {
+	width:100px;
+	height:100px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.header a {
+	text-decoration: none;
+	font-size:130%;
+	color:#e39542;
+
+}	
+.header span {
+	display:none;
+}
+.headerlinks li a:hover {
+	border-bottom:1px solid #e39542;
+	
+	
+}
+.headerlinks li {
+	list-style-type:none;
+	padding:20px;
+	display:inline;
+
+
+}
+.header ul {
+	display:inline;
+
+}
+.headerlinks {
+
+	position:relative;
+	left:20px;
+	top:-50px;
+}
+
+.contentcontainer {
+	max-height:80%;
+	position:absolute;
+	width:1920px;
+	overflow-x:hidden;
+
+}
+.content {
+	border:2px solid #e39542;
+	opacity:0.9;
+	position:relative;
+	width:40%;
+	left:-3000px;
+	margin-top:50px;
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;	
+	height:auto;	
+	background-color:white;
+	color: black;
+	overflow:auto;
+	height:100%;
+}
+.drinkscontent {
+
+}
+.side {
+	padding:0;
+	margin:0;
+	color:#e39542;
+	font-weight:bold;
+}
+.sideprice {
+	color:#7D6943;
+	font-size:90%;
+}
+.dinnermenu {
+	display:none;
+}
+.brunchmenu {
+	display:none;
+}
+.mealtime {
+	size:90%;
+	color:#7D6943;
+	font-style:italic;
+	padding:10px;
+	text-align:center;
+}
+.googlemap {
+	text-align:center;
+}
+.socialmedia {
+	position:absolute;
+	z-index:1;
+	right:50px;
+	top:50px;
+	
+	
+}
+.socialmedia a {
+	
+	padding:5px;	
+}
+.current {
+	display:none;
+}
